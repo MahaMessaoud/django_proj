@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #d6c9c4;
             margin: 0;
             padding: 0;
         }
@@ -17,14 +17,14 @@
             overflow: hidden;
         }
         header {
-            background: #333;
-            color: #fff;
+            background: #65412b;
+            color: #ebe6e4;
             padding-top: 30px;
             min-height: 70px;
-            border-bottom: #0779e4 3px solid;
+            border-bottom: #d6c9c4 3px solid;
         }
         header a {
-            color: #fff;
+            color: #ebe6e4;
             text-decoration: none;
             text-transform: uppercase;
             font-size: 16px;
@@ -38,22 +38,31 @@
             padding: 0 20px 0 20px;
         }
         .content {
-            background: #fff;
+            background: #ebe6e4;
             padding: 30px;
             margin-top: 30px;
         }
-        .content h1 {
+        .content h1, .content p, .content h2 {
+            color: #65412b;
             text-align: center;
         }
-        .content p {
-            text-align: center;
+        .content ul li a {
+            color: #65412b;
+            text-decoration: underline;
         }
         footer {
             text-align: center;
             padding: 20px;
-            background: #333;
-            color: #fff;
+            background: #65412b;
+            color: #ebe6e4;
             margin-top: 20px;
+        }
+        button {
+            background-color: transparent;
+            border: none;
+            color: #ebe6e4;
+            text-decoration: underline;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -67,10 +76,10 @@
                 <li><a href="#">Settings</a></li>
                 <li>
                     <form method="POST" action="{% url 'logout' %}">
-                        {% csrf_token %}
-                        <button type="submit" style="background-color:transparent; border:none; color:white; text-decoration:underline; cursor:pointer;">Logout</button>
+                      {% csrf_token %}
+                      <button type="submit">Logout</button>
                     </form>
-                </li>
+                  </li>
             </ul>
         </div>
     </header>
