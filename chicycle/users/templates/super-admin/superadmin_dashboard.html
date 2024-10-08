@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #0779e4 3px solid;
+        }
+        header a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        header ul {
+            padding: 0;
+            list-style: none;
+        }
+        header ul li {
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+        .content {
+            background: #fff;
+            padding: 30px;
+            margin-top: 30px;
+        }
+        .content h1 {
+            text-align: center;
+        }
+        .content p {
+            text-align: center;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: #fff;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>super admin Dashboard</h1>
+            <ul>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Manage Users</a></li>
+                <li><a href="#">Settings</a></li>
+                <li>
+                    <form method="POST" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <button type="submit" style="background-color:transparent; border:none; color:white; text-decoration:underline; cursor:pointer;">Logout</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="container content">
+        <h1>Welcome, Admin</h1>
+        <p>This is your admin dashboard. Here you can manage users, view statistics, and configure system settings.</p>
+
+        <section>
+            <h2>Quick Links</h2>
+            <ul>
+                <li><a href="#">User Management</a></li>
+                <li><a href="#">System Settings</a></li>
+                <li><a href="#">View Reports</a></li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>Admin Dashboard - &copy; 2024</p>
+    </footer>
+</body>
+</html>
