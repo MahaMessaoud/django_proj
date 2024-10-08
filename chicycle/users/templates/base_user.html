@@ -1,0 +1,116 @@
+<!-- base_user.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}User Dashboard{% endblock %}</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #ebe6e4; /* Beige très clair pour le fond */
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+        overflow: hidden;
+      }
+      header {
+        background: #65412b; /* Marron pour le header */
+        color: #fff;
+        padding: 20px;
+        min-height: 70px;
+        border-bottom: #d6c9c4 3px solid; /* Beige rosé pour la bordure */
+      }
+      header h1 {
+        float: left;
+        margin: 0;
+      }
+      header ul {
+        float: right;
+        padding: 0;
+        list-style: none;
+      }
+      header ul li {
+        display: inline-block;
+        margin-left: 20px;
+      }
+      header ul li a, header ul li form button {
+        color: #fff;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 16px;
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+      .content {
+        background: #fff;
+        padding: 30px;
+        margin-top: 30px;
+        text-align: center;
+      }
+      footer {
+        text-align: center;
+        padding: 20px;
+        background: #65412b; /* Marron pour le footer */
+        color: #fff;
+        margin-top: 20px;
+      }
+      button {
+        background-color: #65412b; /* Marron pour les boutons */
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      button:hover {
+        background-color: #d6c9c4; /* Beige rosé au survol */
+        color: #65412b; /* Changer le texte au marron lors du survol */
+      }
+      @media (max-width: 768px) {
+        header h1, header ul {
+          float: none;
+          text-align: center;
+        }
+
+        header ul {
+          margin-top: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>User Dashboard</h1>
+        <ul>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'profile' %}">Profile</a></li>
+          <li><a href="{% url 'settings' %}">Settings</a></li>
+          <li>
+            <form method="POST" action="{% url 'logout' %}">
+              {% csrf_token %}
+              <button type="submit">Logout</button>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <div class="container content">
+      {% block content %}
+      <!-- Contenu spécifique aux pages enfants sera rendu ici -->
+      {% endblock %}
+    </div>
+
+    <footer>
+      <p>User Dashboard - &copy; 2024</p>
+    </footer>
+  </body>
+</html>
